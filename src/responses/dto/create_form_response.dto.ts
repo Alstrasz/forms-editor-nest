@@ -8,6 +8,7 @@ export class CreateFormResponseDto implements Partial<FormResponse> {
     @IsInt()
         form_id: number;
     @ValidateNested( { each: true } )
+    @Type( () => FormFieldResponseDto )
     @IsArray()
         fields: Array<FormFieldResponseDto>;
 }

@@ -1,9 +1,9 @@
 import { Exclude, Expose, Type } from 'class-transformer';
-import _ from 'lodash';
+import * as _ from 'lodash';
 import { FormResponse } from '../../responses/entites/form_responce.entity';
 import { JsonRpcResponse } from '../../json_rpc/dto/json-rpc.dto';
 import { FormFieldResponse } from 'src/forms/types/form_field_response';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsString } from 'class-validator';
 
 @Exclude()
 export class FormResponseDto {
@@ -18,13 +18,14 @@ export class FormResponseDto {
         fields: Array<FormFieldResponseDto>;
 
     @Expose()
-        created_at: Date;
+        created_at: number;
 
     constructor ( data: FormResponse ) {
         Object.assign( this, data );
         this.fields = _.map( data.fields, ( elem ) => {
             return new FormFieldResponseDto( elem );
         } );
+        this.created_at = data.created_at.valueOf();
     }
 }
 
@@ -51,11 +52,9 @@ export class FormResponsesDtoJsonRpc extends JsonRpcResponse<Array<FormResponseD
 @Exclude()
 export class FormFieldResponseDto implements FormFieldResponse {
     @IsString()
-    @IsNotEmpty()
     @Expose()
         name: string;
     @IsString()
-    @IsNotEmpty()
     @Expose()
         data: string;
 

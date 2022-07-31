@@ -11,14 +11,18 @@ export class ResponsesController {
     @Get( '/:id' )
     get_responses_by_id ( @Param( 'id', new ParseIntPipe() ) id: number, @Query( 'jid', new ParseIntPipe() ) jid: number ): Promise<FormResponsesDtoJsonRpc> {
         return this.responses_service.get_all_responses_for_form( id ).then( ( val ) => {
-            return new FormResponsesDtoJsonRpc( _.map( val, ( elem ) => {
+            console.log( val );
+            const ret = new FormResponsesDtoJsonRpc( _.map( val, ( elem ) => {
                 return new FormResponseDto( elem );
             } ), jid );
+            console.log( ret );
+            return ret;
         } );
     }
 
     @Post( '' )
     create_response ( @Body() create_from_response_dto_json_rpc: CreateFormResponseDtoJsonRpc ): Promise<FormResponseDtoJsonRpc> {
+        console.log( create_from_response_dto_json_rpc.params );
         return this.responses_service.create_form_response( create_from_response_dto_json_rpc.params ).then( ( val ) => {
             return new FormResponseDtoJsonRpc( new FormResponseDto( val ), create_from_response_dto_json_rpc.id );
         } );

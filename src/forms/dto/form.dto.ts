@@ -31,7 +31,7 @@ export class FormDto {
         fields: Array<FormFieldDto>;
 
     @Expose()
-        created_at: Date;
+        created_at: number;
 
     constructor ( data: Form ) {
         Object.assign( this, data );
@@ -45,6 +45,7 @@ export class FormDto {
                 return new FormFieldSelectDto( elem );
             }
         } );
+        this.created_at = data.created_at.valueOf();
     }
 }
 

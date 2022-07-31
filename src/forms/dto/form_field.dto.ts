@@ -1,16 +1,14 @@
 import { Exclude, Expose } from 'class-transformer';
-import { IsArray, IsIn, IsNotEmpty, IsString } from 'class-validator';
+import { IsArray, IsIn, IsString } from 'class-validator';
 import { FormFieldAny, FormFieldInput, FormFieldSelect, FormFieldTextArea } from '../types/form_field';
 
 @Exclude()
 export class FormFieldAnyDto implements FormFieldAny {
     @Expose()
     @IsString()
-    @IsNotEmpty()
         name: string;
     @Expose()
     @IsString()
-    @IsNotEmpty()
         description: string;
     @Expose()
     @IsString()

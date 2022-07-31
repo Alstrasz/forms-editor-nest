@@ -13,6 +13,6 @@ export class ResponsesService {
     }
 
     async get_all_responses_for_form ( id: number ): Promise<Array<FormResponse>> {
-        return this.form_response_repository.findBy( { id } );
+        return this.form_response_repository.findBy( { form_id: id } );
     }
 }

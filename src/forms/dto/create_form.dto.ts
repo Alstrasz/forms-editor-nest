@@ -6,10 +6,8 @@ import { JsonRpcRequest } from '../../json_rpc/dto/json-rpc.dto';
 
 export class CreateFormDto implements Partial<Form> {
     @IsString()
-    @IsNotEmpty()
         name: string;
     @IsString()
-    @IsNotEmpty()
         description: string;
 
     @ValidateNested( { each: true } )
