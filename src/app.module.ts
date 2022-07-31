@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { FormsModule } from './forms/forms.module';
+import { ResponsesModule } from './responses/responses.module';
+import { JsonRpcModule } from './json_rpc/json_rpc.module';
 
 @Module( {
     imports: [
@@ -23,6 +25,8 @@ import { FormsModule } from './forms/forms.module';
                 },
             },
         } ),
+        ResponsesModule,
+        JsonRpcModule,
     ],
     controllers: [AppController],
     providers: [AppService],

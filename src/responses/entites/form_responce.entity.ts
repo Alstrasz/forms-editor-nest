@@ -1,9 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, JoinColumn, ManyToOne } from 'typeorm';
-import { FormFieldResponse } from '../types/form_field_response';
-import { Form } from './form.entity';
+import { FormFieldResponse } from '../../forms/types/form_field_response';
+import { Form } from '../../forms/entites/form.entity';
 
 @Entity()
-export class FromResponse {
+export class FormResponse {
     @PrimaryGeneratedColumn()
         id: number;
 

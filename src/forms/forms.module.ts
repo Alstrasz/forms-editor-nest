@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
 import { FormsService } from './forms.service';
 import { FormsController } from './forms.controller';
-import { FromResponse } from './enitites/form_responce.entity';
-import { Form } from './enitites/form.entity';
+import { Form } from './entites/form.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module( {
-    imports: [TypeOrmModule.forFeature( [Form, FromResponse] )],
+    imports: [TypeOrmModule.forFeature( [Form] )],
     providers: [FormsService],
     controllers: [FormsController],
 } )
