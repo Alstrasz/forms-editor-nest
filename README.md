@@ -16,6 +16,8 @@ Related projects: https://github.com/Alstrasz/forms-editor-angular
 
 ## With docker compose
 
+For dev
+
 From project's root folder:
 
 - ```docker-compose up``` (can take a long time first time due to downloading of images and libraries)
@@ -24,13 +26,24 @@ Client will be available at http://127.0.0.1:3000
 
 Postgres at 127.0.0.1:5432
 
+For prod docker-compose file should be modified
+
 ## With node
 
 Requiers postgres to be launched, setting passed as env variables. See ./docker-compose.yml as example
 
-From root
+For pord
+
+From project's root folder:
 - ```npm i```
+- ```npm run build```
 - ```npm start```
+
+For dev
+
+From project's root folder:
+- ```npm i```
+- ```npm run start:dev```
 
 # Endpoints
 
