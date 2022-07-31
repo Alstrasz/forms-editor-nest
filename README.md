@@ -31,3 +31,17 @@ Requiers postgres to be launched, setting passed as env variables. See ./docker-
 From root
 - ```npm i```
 - ```npm start```
+
+# Endpoints
+
+There are five endpoints - they are pretty self explanetory
+
+| REST API         | JSON RPC METHOD     | Description |
+|--------------|-----------|------------|
+| GET /responses/:id | responses.get_by_id | Get all responses for form with specified id |
+| POST /responses | responses | Create new response for specifed form |
+| GET /forms/:id | forms.get_by_id | Get form description by id |
+| GET /forms | forms.short | Get list of short descriptions of all forms |
+| POST /forms | forms | Create new form |
+
+Dtos for working with these endpoints can be found in code
