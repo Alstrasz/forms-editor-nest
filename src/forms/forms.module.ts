@@ -5,8 +5,11 @@ import { Form } from './entites/form.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module( {
-    imports: [TypeOrmModule.forFeature( [Form] )],
+    imports: [
+        TypeOrmModule.forFeature( [Form] ),
+    ],
     providers: [FormsService],
     controllers: [FormsController],
+    exports: [FormsService],
 } )
 export class FormsModule {}

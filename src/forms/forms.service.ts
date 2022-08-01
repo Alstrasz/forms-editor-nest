@@ -20,9 +20,9 @@ export class FormsService {
 
     async get_all_froms_short (): Promise<Array<FormDescriptionShort>> {
         return this.form_repository.find().then( ( forms: Array<Form> ) => {
-            return _.map( forms, ( elem ) => {
+            return _.sortBy( _.map( forms, ( elem ) => {
                 return _.pick( elem, ['id', 'name', 'description'] );
-            } );
+            } ), 'id' );
         } );
     }
 }
