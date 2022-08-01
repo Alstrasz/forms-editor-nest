@@ -31,17 +31,6 @@ export class JsonRpcController {
                     throw new BadRequestException( e );
                 } );
         }
-        if ( dto_json_rpc.method === 'responses.get_by_id' ) {
-            const v = new IdDto();
-            Object.assign( v, dto_json_rpc.params );
-            return validateOrReject( v )
-                .then( () => {
-                    return { url: `responses/${dto_json_rpc.params?.id}?jid=${dto_json_rpc.id}`, statusCode: 303 };
-                } )
-                .catch( ( e ) => {
-                    throw new BadRequestException( e );
-                } );
-        }
         if ( dto_json_rpc.method === 'forms.short' ) {
             return { url: `forms?jid=${dto_json_rpc.id}`, statusCode: 303 };
         }
